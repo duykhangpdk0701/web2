@@ -1,0 +1,92 @@
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $backgroundColor;
+}
+
+.login-form {
+  padding: 60px;
+  background-color: rgb(32, 32, 32);
+  display: flex;
+  flex-direction: column;
+  width: 470px;
+
+  .logo {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .login-description {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .login-username,
+  .login-password {
+    height: 50px;
+    background-color: rgb(43, 43, 43);
+    border: none;
+    margin-top: 15px;
+    outline: none;
+    padding: 0 14px;
+    color: white;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+
+  .login-remember-check-box-forgot-password-container {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .login-forgot-password-container {
+      font-size: 13.5px;
+      a {
+        text-decoration: none;
+        color: $textDescriptionColor;
+      }
+    }
+  }
+}
+
+.sign-up-option-container {
+  margin-top: 35px;
+
+  .sign-up-option-description {
+    font-size: 13.5px;
+    color: $textDescriptionColor;
+
+    .sign-up-option-link {
+      color: $textColor;
+      text-decoration: none;
+    }
+  }
+}
+
+.submit-btn {
+  height: 50px;
+  margin-top: 16px;
+  background-color: rgba(18, 18, 18, 0.5);
+  color: $textDescriptionColor;
+  border: none;
+  border-radius: 5px;
+  cursor: none;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.submit-btn-active {
+  background-color: #037bee;
+  color: $textColor;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.submit-btn-active:hover {
+  background-color: rgb(2, 86, 166);
+}

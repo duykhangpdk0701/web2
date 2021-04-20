@@ -1,0 +1,77 @@
+.signup-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $backgroundColor;
+}
+
+.signup-form {
+  padding: 60px;
+  background-color: rgb(32, 32, 32);
+  display: flex;
+  flex-direction: column;
+  width: 470px;
+
+  .logo {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .signup-description {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  input {
+    height: 50px;
+    background-color: rgb(43, 43, 43);
+    border: none;
+    margin-top: 15px;
+    outline: none;
+    padding: 0 14px;
+    color: white;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+
+  .name-container {
+    display: flex;
+
+    .space-name {
+      width: 10px;
+    }
+
+    input {
+      flex-grow: 1;
+      width: 0px;
+    }
+  }
+}
+
+.submit-btn-signup {
+  margin-top: 35px;
+}
+
+.submit-btn-active {
+  background-color: #037bee;
+  color: $textColor;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.submit-btn-active:hover {
+  background-color: rgb(2, 86, 166);
+}
+
+.error-string {
+  width: 100%;
+  background-color: rgb(213, 72, 65);
+  border-radius: 5px;
+  padding: 15px 30px;
+  margin-top: 15px;
+  font-size: 12px;
+  text-align: center;
+}
