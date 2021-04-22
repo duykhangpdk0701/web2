@@ -25,12 +25,7 @@ if (isset($_SESSION["userName"])) {
   echo "<ul class='index-nav-ul'>";
   echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
-  echo "<li class='index-nav-li'><a href='./includes/handleWishlistPage.inc.php'>Market</a></li>";
-
-  if ($_SESSION["admin"] == 1) {
-    echo "<li class='index-nav-li'><a href=''>Admin</a></li>";
-  }
-
+  echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/logout.inc.php'>Đăng xuất</a></li>";
   echo "</ul>";
 } else {
@@ -43,35 +38,34 @@ if (isset($_SESSION["userName"])) {
       <div class="index-semi-nav-bar">
         <div class="index-semi-nav-bar-left">
           <div class="browse-container">
-            <a href="">Cửa hàng</a>
+            <a href="./index.php">Cửa hàng</a>
+            <a href=""></a>
           </div>
           <div class="wish-list-container">
             <a href="./wishList.php">
               <i class="fas fa-shopping-cart"></i>
             </a>
-
           </div>
         </div>
         <div class="index-semi-nav-bar-right">
           <div class="index-search-bar">
             <i class="fas fa-search"></i>
-            <input id="search-bar" class="search-bar" type="text" placeholder="Tim kiếm">
+            <input type="text" placeholder="Tim kiếm">
           </div>
         </div>
       </div>
     </nav>
 
-
-    <div class="main">
-      <aside class="aside"></aside>
-      <div class="cart-container">
-        <ul class="ul-cart">
-        </ul>
-      </div>
+    <div class="market-main">
+      <form class="market-intro-container" method="POST" action="./includes/handleMarketBegin.inc.php">
+        <h1 class="market-intro-title">Become A Market Seller</h1>
+        <p class="market-intro-description">Earn money form selling your product and be more creative</p>
+        <div class="market-intro-box"></div>
+        <button name='start' class="market-intro-btn">Get started</button>
+      </form>
     </div>
   </section>
 
-  <script src="./js/app.js"></script>
 </body>
 
 </html>

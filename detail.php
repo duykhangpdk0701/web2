@@ -75,7 +75,8 @@ if (isset($_SESSION["userName"])) {
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
   echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
-  echo "<li class='index-nav-li'><a href=''>Giỏ hàng</a></li>";
+  echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
+  echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/logout.inc.php'>Đăng xuất</a></li>";
   echo "</ul>";
 } else {

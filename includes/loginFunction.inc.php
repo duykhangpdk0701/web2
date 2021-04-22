@@ -14,6 +14,7 @@ function loginUsername($conn, $username) {
 
 function loginUser($conn, $username, $password) {
   $loginUsername = loginUsername($conn, $username);
+
   if (!$loginUsername) {
     header("location: ../login.php?error=wronglogin");
     exit();
@@ -28,6 +29,7 @@ function loginUser($conn, $username, $password) {
     $_SESSION['lastName'] = $loginUsername['lastNames'];
     $_SESSION['userName'] = $loginUsername["userNames"];
     $_SESSION["id"] = $loginUsername["ids"];
+    $_SESSION["admin"] = $loginUsername["admin"];
 
     header("location: ../index.php");
     exit();

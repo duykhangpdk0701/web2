@@ -2,6 +2,7 @@
 require_once "./db.inc.php";
 require_once "./isExistFunction.inc.php";
 session_start();
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 
 //purchase handle
 if (isset($_POST["buyNowBtn"])) {
@@ -15,11 +16,18 @@ if (isset($_POST["buyNowBtn"])) {
       exit();
     }
 
-    $query = "INSERT INTO purchases (usersId, productsId, purchasesDate) VALUES (?,?,?)";
+    $query = "INSERT INTO purchases (usersId, productsId, purchasesDate) VALUES (?,?,?);";
     $stmt = $conn->prepare($query) or die("stmt failed");
     $stmt->bind_param("sss", $idUser, $idProduct, $date) or die("stmt bind param failed");
     $stmt->execute() or die("stmt execute failed");
     $stmt->close();
+
+    $query = "DELETE FROM `wishlist` WHERE userId = ? AND productId = ?;";
+    $stmt = $conn->prepare($query) or die("stmt failed");
+    $stmt->bind_param("ss", $idUser, $idProduct) or die("stmt bind param failed");
+    $stmt->execute() or die("stmt execute failed");
+    $stmt->close();
+
     header("location: ../detail.php?id=$idProduct");
     exit();
   } else {
@@ -40,7 +48,7 @@ if (isset($_POST["addBtn"])) {
       exit();
     }
 
-    $query = "INSERT INTO wishlist (userId, productId, dateAddToWishlist) VALUES (?,?,?)";
+    $query = "INSERT INTO wishlist (userId, productId, dateAddToWishlist) VALUES (?,?,?);";
     $stmt = $conn->prepare($query) or die("stmt failed");
 
     $stmt->bind_param("sss", $idUser, $idProduct, $date) or die("stmt bind param failed");

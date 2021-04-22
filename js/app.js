@@ -1,5 +1,6 @@
 let wishlist;
 let purchase;
+let product;
 
 const isExistInWishlist = (id, wishlist) => {
   if (wishlist.includes(id)) {
@@ -62,7 +63,7 @@ const renderData = (data) => {
       <img src="${element.imgBrowseUrl}" alt="">`;
 
     if (isExistInPurchasesList(element.id, purchase)) {
-      render += `<button type="button" class='card-svg green-btn'>
+      render += `<button type="button" class='card-svg green-btn' title="Own this game">
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M20 29C24.9706 29 29 24.9706 29 20C29 15.0294 24.9706 11 20 11C15.0294 11 11 15.0294 11 20C11 24.9706 15.0294 29 20 29Z" fill="#2ECC71" stroke="white" stroke-width="2"/>
       <path d="M15.5 20L18.5 23L24.5 17" fill="#2ECC71"/>
@@ -71,7 +72,7 @@ const renderData = (data) => {
   </button>
   `;
     } else if (isExistInWishlist(element.id, wishlist)) {
-      render += `<button class="card-svg" name="removeBtn" >
+      render += `<button class="card-svg" name="removeBtn" title="Remove from wishlist" >
       <svg xmlns="http://www.w3.org/2000/svg" class="svg css-wpyjus-Icon__svg" viewBox="0 0 40 40">
       <g filter="url(#filter0_d)">
         <circle cx="20" cy="20" r="10" fill="currentColor" fill-opacity="0.72"></circle>
@@ -96,7 +97,7 @@ const renderData = (data) => {
     </svg>
                     </button>`;
     } else {
-      render += `<button class="card-svg" name="addBtn" >
+      render += `<button class="card-svg" name="addBtn" title="Add to wishlist" >
       <svg xmlns="http://www.w3.org/2000/svg" class="svg css-wpyjus-Icon__svg" viewBox="0 0 40 40">
       <g filter="url(#filter0_d)">
         <circle cx="20" cy="20" r="10" fill="currentColor" fill-opacity="0.72"></circle>
@@ -146,6 +147,7 @@ const fetchData = () => {
   xmlhttp.onreadystatechange = () => {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       const data = JSON.parse(xmlhttp.responseText);
+      product = data;
       renderData(data);
     } else {
       console.warn("not receiving data");
@@ -155,10 +157,24 @@ const fetchData = () => {
   xmlhttp.send();
 };
 
+const handleSearchingBar = () => {
+  const searchingBar = document.querySelector("#search-bar");
+
+  searchingBar.addEventListener("input", () => {
+    const filRender = product.filter((item) => {
+      const reg = new RegExp(searchingBar.value.toLowerCase());
+      return reg.test(item.name.toLowerCase());
+    });
+
+    renderData(filRender);
+  });
+};
+
 const app = () => {
   fetchDataPurchase();
   fetchDataWishList();
   fetchData();
+  handleSearchingBar();
 };
 
 app();
