@@ -1,9 +1,6 @@
 <?php
 session_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
 <?php
 include_once "./header.php";
 ?>
@@ -58,11 +55,10 @@ if (isset($_SESSION["userName"])) {
 
     <div class="wishlist-main">
       <ul class="wishlist-ul-item">
-
+        <!-- item wish list will render in here -->
       </ul>
     </div>
   </section>
-
   <script src="./js/handleWishList.js"></script>
 </body>
 

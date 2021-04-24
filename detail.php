@@ -208,12 +208,6 @@ if (isExistPurchases($resultPurchases, $_GET["id"])) {
           </div>
         </div>
       </div>
-
-
-    </div>
-
-
-
     </div>
 
 

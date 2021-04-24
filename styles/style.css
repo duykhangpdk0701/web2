@@ -12,7 +12,7 @@ body {
 }
 
 .index-section {
-  min-height: 200vh;
+  min-height: 100vh;
   background-color: #121212;
 }
 
@@ -533,7 +533,7 @@ a {
   max-width: 1400px;
   padding: 0 10px;
   margin: auto;
-  min-height: 400vh;
+  min-height: 100vh;
 }
 
 .detail-header {
@@ -552,6 +552,29 @@ a {
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
+  background-color: #262626;
+}
+
+.detail-header .detail-header-img-container .detail-header-img-empty {
+  background-image: url("../img/starWarBattleFront2-representation.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .detail-header-price {
@@ -575,6 +598,20 @@ a {
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   border-radius: 10px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .detail-header-price .detail-header-price-btn-container {
@@ -912,5 +949,63 @@ a {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.market-input-text {
+  height: 50px;
+  background-color: #2b2b2b;
+  border: none;
+  margin-top: 15px;
+  outline: none;
+  padding: 0 14px;
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  width: 70%;
+}
+
+.market-input-file {
+  margin-top: 10px;
+}
+
+.market-url-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.market-url-container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.market-url-container:nth-child(1), .market-url-container:nth-child(2) {
+  margin-bottom: 40px;
+}
+
+.market-info-right {
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+  background-color: #262626;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  padding: 3%;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.logo-market {
+  margin-right: 10px;
+  font-size: 25px;
 }
 /*# sourceMappingURL=style.css.map */

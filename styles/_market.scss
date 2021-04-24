@@ -33,3 +33,51 @@
     cursor: pointer;
   }
 }
+
+.market-input-text {
+  height: 50px;
+  background-color: rgb(43, 43, 43);
+  border: none;
+  margin-top: 15px;
+  outline: none;
+  padding: 0 14px;
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  width: 70%;
+}
+
+.market-input-file {
+  margin-top: 10px;
+}
+
+.market-url-container {
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  &:nth-child(1),
+  &:nth-child(2) {
+    margin-bottom: 40px;
+  }
+}
+
+.market-info-right {
+  flex-basis: 75%;
+  background-color: rgb(38, 38, 38);
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3%;
+
+  color: $textDescriptionColor;
+}
+
+.logo-market {
+  margin-right: 10px;
+  font-size: 25px;
+}
