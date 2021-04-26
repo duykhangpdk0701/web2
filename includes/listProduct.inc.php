@@ -3,8 +3,12 @@
 function renderListProduct() {
 
   require_once "./db.inc.php";
-
-  $query = "SELECT * FROM products;";
+  if (isset($_GET["id"])) {
+    $idProduct = $_GET["id"];
+    $query = "SELECT * FROM products WHERE id = $idProduct;";
+  } else {
+    $query = "SELECT * FROM products;";
+  }
   $result = $conn->query($query);
   $data = array();
 

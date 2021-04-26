@@ -114,24 +114,12 @@ if (isset($_SESSION["userName"])) {
         <div class="detail-header-price">
           <div class="detail-header-price-img" style="background-image: url('<?php echo $row["imgNameUrl"] ?>');">
           </div>
-          <form class="detail-header-price-btn-container" method="POST"
-            action="./includes/detail.inc.php?id=<?php echo $_GET["id"] ?>">
-            <span class="detail-header-price-btn-container-text"><?php echo $row["price"] . "$" ?></span>
+          <div class="detail-header-price-btn-container"> <span class="detail-header-price-btn-container-text">
+              <?php echo $row["price"] . "$" ?></span>
             <div class="detail-header-price-btn-container-btns">
-              <?php
-if (isExistPurchases($resultPurchases, $_GET["id"])) {
-  echo '<button class="detail-header-price-btn-container-btns-buy detail-header-price-btn-container-btns-buyed" name="buyNowBtn">đẫ mua</button>';
-  echo '<button class="detail-header-price-btn-container-btns-add detail-header-price-btn-container-btns-buyed" name="addBtn"><i class="fas fa-check"></i></button>';
-} else if (isExistWishList($resultWishlist, $_GET["id"])) {
-  echo '<button class="detail-header-price-btn-container-btns-buy" name="buyNowBtn">Mua</button>';
-  echo '<button class="detail-header-price-btn-container-btns-add" name="removeBtn"><i class="fas fa-check"></i></button>';
-} else {
-  echo '<button class="detail-header-price-btn-container-btns-buy" name="buyNowBtn">Mua</button>';
-  echo '<button class="detail-header-price-btn-container-btns-add" name="addBtn"><i class="fas fa-plus"></i></button>';
-}
-?>
+
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <div class="detail-info">
@@ -212,6 +200,7 @@ if (isExistPurchases($resultPurchases, $_GET["id"])) {
 
 
   </section>
+  <script src="./js/handleDetail.js"></script>
 </body>
 
 </html>
