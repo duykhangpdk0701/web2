@@ -2,7 +2,8 @@
 
 session_start();
 
-function renderListProductWithSession($userId) {
+function renderListProductWithSession($userId)
+{
 
   require_once "./db.inc.php";
 
@@ -17,7 +18,8 @@ function renderListProductWithSession($userId) {
 
 }
 
-function renderListProduct() {
+function renderListProduct()
+{
 
   require_once "./db.inc.php";
 

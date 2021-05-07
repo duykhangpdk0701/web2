@@ -28,7 +28,7 @@ if (isset($_SESSION["userName"])) {
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
 
   if ($_SESSION["admin"] == 1) {
-    echo "<li class='index-nav-li'><a href=''>Admin</a></li>";
+    echo "<li class='index-nav-li'><a href='./adminApproveList.php'>Admin</a></li>";
   }
 
   echo "<li class='index-nav-li'><a href='./includes/logout.inc.php'>Đăng xuất</a></li>";
@@ -43,19 +43,23 @@ if (isset($_SESSION["userName"])) {
       <div class="index-semi-nav-bar">
         <div class="index-semi-nav-bar-left">
           <div class="browse-container">
-            <a href="">Cửa hàng</a>
+            <?php
+if (isset($_SESSION["seller"])) {
+  if ($_SESSION["seller"]) {
+    echo "<a href='./'>Cửa hàng</a>";
+    echo "<a href='./ownProduct.php'>Gian hàng</a>";
+    echo "<a href='./market.php' style='color: #e7e7e7'>Đăng game</a>";
+  } else {
+    echo "<a href=''>Cửa hàng</a>";
+  }
+}
+?>
           </div>
-          <div class="wish-list-container">
-            <a href="./wishList.php">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
 
-          </div>
         </div>
         <div class="index-semi-nav-bar-right">
           <div class="index-search-bar">
-            <i class="fas fa-search"></i>
-            <input id="search-bar" class="search-bar" type="text" placeholder="Find some game">
+
           </div>
         </div>
       </div>
@@ -63,23 +67,23 @@ if (isset($_SESSION["userName"])) {
 
 
 
-    <div class="detail-main">
+    <form class="detail-main" method="POST" enctype="multipart/form-data" action="./includes/market.inc.php">
       <div class="detail-header">
         <div class="detail-header-img-container">
           <div class="detail-header-img detail-header-img-empty">
             <h3>Upload imagine</h3>
-            <input class="market-input-file" type="file">
+            <input class="market-input-file" type="file" required name="imgRepresentativeUrl">
           </div>
         </div>
         <div class="detail-header-price">
           <div class="detail-header-price-img">
             <h3>Upload imagine</h3>
-            <input class="market-input-file" type="file" name="" id="">
+            <input class="market-input-file" type="file" name="imgNameUrl" id="" required>
           </div>
 
           <div class="detail-header-price-btn-container">
             <h3>Price (USD)</h3>
-            <input class="market-input-text" type="text">
+            <input class="market-input-text" type="text" name="price">
             <div class="detail-header-price-btn-container-btns">
 
             </div>
@@ -94,19 +98,20 @@ if (isset($_SESSION["userName"])) {
           <div class="detail-info-right">
             <div class="detail-info-right-developer-container">
               <h4>Developer</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:CD Project Red">
+              <input class="market-input-text" type="text" placeholder="Ex:CD Project Red" name="developer" required>
             </div>
             <div class="detail-info-right-date-release-container">
               <h4>Release Date</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:2020-12-31 (yyyy-mm-dd)">
+              <input class="market-input-text" type="text" placeholder="Ex:2020-12-31 (yyyy-mm-dd)" name="dateRelease"
+                required>
             </div>
             <div class="detail-info-right-tags-container">
               <h4>Tags</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:Action, RPG">
+              <input class="market-input-text" type="text" placeholder="Ex:Action, RPG" name="tags" required>
             </div>
             <div class="detail-info-right-platform-container">
               <h4>Platform</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:Window">
+              <input class="market-input-text" type="text" placeholder="Ex:Window" name="platform" required>
             </div>
           </div>
         </div>
@@ -120,19 +125,15 @@ if (isset($_SESSION["userName"])) {
               <div>
                 <i class="logo-market fas fa-globe-americas"></i><span class="text">Website Link</span>
               </div>
-              <input class="market-input-text" type="text" placeholder="Ex:https://www.game.com">
+              <input class="market-input-text" type="text" placeholder="Ex:https://www.game.com" name="websiteUrl"
+                required>
             </div>
             <div class="market-url-container">
               <div>
                 <i class="logo-market fab fa-facebook-square"></i><span class="text">Facebook Link</span>
               </div>
-              <input class="market-input-text" type="text" placeholder="Ex:https://www.facbook.com/game">
-            </div>
-            <div class="market-url-container">
-              <div>
-                <i class="logo-market fab fa-youtube"></i><span class="text">Youtube Link</span>
-              </div>
-              <input class="market-input-text" type="text" placeholder="Ex:https://www.youtube.com/game">
+              <input class="market-input-text" type="text" placeholder="Ex:https://www.facbook.com/game"
+                name="facebookUrl" required>
             </div>
           </div>
         </div>
@@ -146,34 +147,70 @@ if (isset($_SESSION["userName"])) {
           <div class="detail-info-right">
             <div class="detail-info-right-os-container">
               <h4>Hệ điều hành</h4>
-              <input class="market-input-text" type="text" placeholder="Ex: Window 8,10">
+              <input class="market-input-text" type="text" placeholder="Ex: Window 8,10" name="os" required>
             </div>
             <div class="detail-info-right-processor-container">
               <h4>Bộ xử lý</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:Intel Core i5 6600K">
+              <input class="market-input-text" type="text" placeholder="Ex:Intel Core i5 6600K" name="processor"
+                required>
             </div>
             <div class="detail-info-right-memory-container">
               <h4>Bộ nhớ</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:8GB">
+              <input class="market-input-text" type="text" placeholder="Ex:8GB" name="memory" required>
             </div>
             <div class="detail-info-right-storage-container">
               <h4>Lưu trữ</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:60GB">
+              <input class="market-input-text" type="text" placeholder="Ex:60GB" name="storage" required>
             </div>
 
             <div class="detail-info-right-directx-container">
               <h4>Direct X</h4>
-              <input class="market-input-text" type="text" placeholder="11">
+              <input class="market-input-text" type="text" placeholder="11" name="directX" required>
             </div>
             <div class="detail-info-right-graphic-container">
               <h4>Card đồ hoạ</h4>
-              <input class="market-input-text" type="text" placeholder="NVIDIA GeForce® GTX 660 2GB">
+              <input class="market-input-text" type="text" placeholder="NVIDIA GeForce® GTX 660 2GB" name="graphics"
+                required>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
+        <div class="detail-info-child detail-info-post-image">
+          <div class="detail-info-left">
+            <h3>Image đề xuất trên browser</h3>
+            </h3>
+          </div>
+          <div class="detail-info-right market-img-post-right">
+            <div class="cart market-cart">
+              <div class="cart-form">
+                <div class="cart-url">
+                  <div class="cart-img-box cart-img-box-post">
+                    <input type="file" class="market-img-post-file" name="imgBrowseUrl" required>
+                  </div>
+                  <span class="cart-title">Lorem, ipsum.</span>
+                  <span class="cart-description">Lorem ipsum dolor sit amet.</span>
+                  <span class="cart-price">lorem</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4>Game's name</h4>
+              <input class="market-input-text" type="text" placeholder="Star War 2" name="name" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-info-child market-submit-btn-container">
+          <button name="submit-btn" class="market-submit-btn">Submit</button>
+        </div>
+
+
+
+      </div>
+    </form>
+    <?php
+include_once "./footer.php";
+?>
 
   </section>
 

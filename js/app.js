@@ -73,6 +73,7 @@ const fetchDataWishListWithCallBack = (callback) => {
 
 const renderData = (data) => {
   const ulCart = document.querySelector(".ul-cart");
+  const wishlistCount = document.querySelector(".wish-list-number");
   let render = "";
 
   for (const element of data) {
@@ -157,6 +158,7 @@ const renderData = (data) => {
     </li>`;
   }
 
+  wishlistCount.textContent = wishlist.length;
   ulCart.innerHTML = render;
 };
 

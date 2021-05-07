@@ -23,11 +23,9 @@ if (isset($_SESSION["userName"])) {
   echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
-
   if ($_SESSION["admin"] == 1) {
     echo "<li class='index-nav-li'><a href='./adminApproveList.php'>Admin</a></li>";
   }
-
   echo "<li class='index-nav-li'><a href='./includes/logout.inc.php'>Đăng xuất</a></li>";
   echo "</ul>";
 } else {
@@ -41,7 +39,7 @@ if (isset($_SESSION["userName"])) {
         <div class="index-semi-nav-bar-left">
           <div class="browse-container">
             <a href="./index.php">Cửa hàng</a>
-            <a href=""></a>
+            <a href="" style="color: #e7e7e7">Phê duyệt</a>
           </div>
 
         </div>
@@ -59,7 +57,7 @@ include_once "./footer.php";
 ?>
   </section>
 
-  <script src="./js/handleWishList.js"></script>
+  <script src="./js/handleApproveProduct.js"></script>
 </body>
 
 </html>

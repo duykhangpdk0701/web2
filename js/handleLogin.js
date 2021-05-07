@@ -1,3 +1,13 @@
+const preventDefaultLoginBtn = () => {
+  const usernameInput = document.querySelector(".login-username");
+
+  usernameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  });
+};
+
 const ableToLogin = () => {
   const usernameInput = document.querySelector(".login-username");
   const passwordInput = document.querySelector(".login-password");
@@ -29,5 +39,6 @@ const ableToLogin = () => {
 
 const app = () => {
   ableToLogin();
+  preventDefaultLoginBtn();
 };
 app();

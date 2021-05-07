@@ -10,10 +10,20 @@ include_once "./header.php";
   <section class="login-page">
     <form class="login-form" action="./includes/login.inc.php" method="post">
       <i class="logo fas fa-dice"></i>
+      <?php
+if (isset($_GET["error"])) {
+  $error = $_GET["error"];
+  if ($error === "wronglogin") {
+    echo "<P class='error-string'>Your account is not exist in system</P>";
+  } else if ($error === "wrongpassword") {
+    echo "<P class='error-string'>Wrong password</P>";
+  }
+}
+?>
       <h6 class="login-description">Đăng nhập với tài khoản Dice Games</h6>
-      <input name="username" type="text" name='username' class="login-username" placeholder="Email hoặc Tên đăng nhập"
-        require>
-      <input name="password" type="password" name="password" class="login-password" placeholder="Mật khẩu" require>
+      <input id="username" name="username" type="text" class="login-username" placeholder="Email hoặc Tên đăng nhập"
+        required>
+      <input id="password" name="password" type="password" class="login-password" placeholder="Mật khẩu" required>
       <div class="login-remember-check-box-forgot-password-container">
 
         <p class="login-forgot-password-container"><a href="">Quên mật khẩu</a></p>

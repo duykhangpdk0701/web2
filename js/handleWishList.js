@@ -25,7 +25,7 @@ const fetchDataWishList = () => {
             <div class="wishlist-text-container">
               <span class="wishlist-item-name">${element.name}</span>
               <span class="wishlist-item-price">${
-                element.price == 0 ? "Free" : element.price + "$"
+                element.price == 0 ? "Miễn phí" : element.price + "$"
               }</span>
             </div>
           </a>
@@ -54,7 +54,7 @@ const handleRemoveBtn = (e) => {
   xmlhttp.open(method, url, true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-  xmlhttp.send(`userId=${userId}&productId=${productId}`);
+  xmlhttp.send(`userId=${userId}&productId=${productId}&method=remove`);
 
   xmlhttp.onreadystatechange = () => {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

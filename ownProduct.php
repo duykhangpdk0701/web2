@@ -40,12 +40,23 @@ if (isset($_SESSION["userName"])) {
       <div class="index-semi-nav-bar">
         <div class="index-semi-nav-bar-left">
           <div class="browse-container">
-            <a href="./index.php">Cửa hàng</a>
-            <a href=""></a>
+            <?php
+if (isset($_SESSION["seller"])) {
+  if ($_SESSION["seller"]) {
+    echo "<a href='./'>Cửa hàng</a>";
+    echo "<a href='./ownProduct.php' style='color: #e7e7e7'>Gian hàng</a>";
+    echo "<a href='./market.php'>Đăng game</a>";
+  } else {
+    echo "<a href=''>Cửa hàng</a>";
+  }
+}
+?>
           </div>
 
         </div>
+        <div class="index-semi-nav-bar-right">
 
+        </div>
       </div>
     </nav>
 
@@ -54,12 +65,8 @@ if (isset($_SESSION["userName"])) {
         <!-- item wish list will render in here -->
       </ul>
     </div>
-    <?php
-include_once "./footer.php";
-?>
   </section>
-
-  <script src="./js/handleWishList.js"></script>
+  <script src="./js/handleMarketList.js"></script>
 </body>
 
 </html>

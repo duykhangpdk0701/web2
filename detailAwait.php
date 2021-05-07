@@ -11,41 +11,9 @@ if (isset($_SESSION["id"])) {
 
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
-  $query = "SELECT * FROM products WHERE id = $id;";
+  $query = "SELECT * FROM productsawaitapproved WHERE id = $id;";
   $result = $conn->query($query);
   $row = $result->fetch_assoc();
-}
-
-$queryWishlist = "SELECT * FROM wishlist where userId = $userId;";
-$resultWishlist = $conn->query($queryWishlist);
-
-$queryPurchases = "SELECT * FROM purchases where usersId = $userId;";
-$resultPurchases = $conn->query($queryPurchases);
-
-function isExistPurchases($resultPurchases, $item)
-{
-
-  if (isset($_SESSION["id"])) {
-    while ($rowPurchases = $resultPurchases->fetch_assoc()) {
-      if ($rowPurchases["productsId"] == $item) {
-        return true;
-      }
-    }
-  }
-  return false;
-
-}
-
-function isExistWishlist($resultWishlist, $item)
-{
-  if (isset($_SESSION["id"])) {
-    while ($rowWishlist = $resultWishlist->fetch_assoc()) {
-      if ($rowWishlist['productId'] == $item) {
-        return true;
-      }
-    }
-  }
-  return false;
 }
 
 ?>
@@ -79,11 +47,6 @@ if (isset($_SESSION["userName"])) {
   echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
-
-  if ($_SESSION["admin"] == 1) {
-    echo "<li class='index-nav-li'><a href='./adminApproveList.php'>Admin</a></li>";
-  }
-
   echo "<li class='index-nav-li'><a href='./includes/logout.inc.php'>Đăng xuất</a></li>";
   echo "</ul>";
 } else {
@@ -113,7 +76,8 @@ if (isset($_SESSION["userName"])) {
       </div>
     </nav>
 
-    <div class="detail-main">
+    <form action="./includes/approveProduct.inc.php?id=<?php echo $row["id"] ?>&action=noAjax" method="POST"
+      class="detail-main">
       <div class="detail-header">
         <div class="detail-header-img-container">
           <img class="detail-header-img" src="<?php echo $row["imgRepresentativeUrl"] ?>">
@@ -122,7 +86,7 @@ if (isset($_SESSION["userName"])) {
           <div class="detail-header-price-img" style="background-image: url('<?php echo $row["imgNameUrl"] ?>');">
           </div>
           <div class="detail-header-price-btn-container"> <span class="detail-header-price-btn-container-text">
-              <?php echo $row["price"] == 0 ? "Miễn Phí" : $row["price"] . "$" ?></span>
+              <?php echo $row["price"] . "$" ?></span>
             <div class="detail-header-price-btn-container-btns">
 
             </div>
@@ -201,15 +165,16 @@ if (isset($_SESSION["userName"])) {
             </div>
           </div>
         </div>
+
+
+        <div class="detail-info-child detail-info-specifications await-approve-btn-container">
+          <button name="approve-btn" idProduct="<?php echo $row["id"] ?>" class="await-approve-btn">Phê duyệt</button>
+        </div>
       </div>
-    </div>
-
+    </form>
     <?php
-
 include_once "./footer.php";
 ?>
-
-
   </section>
   <script src="./js/handleDetail.js"></script>
 </body>

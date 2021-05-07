@@ -64,6 +64,12 @@ if (isset($_SESSION["userName"])) {
         <button name='start' class="market-intro-btn">Get started</button>
       </form>
     </div>
+
+
+
+    <?php
+include_once "./footer.php";
+?>
   </section>
 
 </body>

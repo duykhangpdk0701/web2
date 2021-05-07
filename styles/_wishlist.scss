@@ -1,6 +1,7 @@
 .wishlist-main {
   display: flex;
   width: 75%;
+  min-height: 70vh;
   margin: auto;
 }
 
@@ -55,6 +56,10 @@
     }
   }
 
+  .wishlist-item-url-no-btn {
+    flex-basis: 85%;
+  }
+
   .wishlist-remove-btn {
     width: 70px;
     padding: 0 20px;
@@ -76,4 +81,12 @@
 
 .wishlist-li-item:hover {
   background-color: rgb(0, 125, 252);
+}
+
+.own-product-container {
+  flex-basis: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 }

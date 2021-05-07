@@ -1,6 +1,7 @@
 <?php
 
-function loginUsername($conn, $username) {
+function loginUsername($conn, $username)
+{
   $query = "SELECT * FROM users WHERE userNames = '$username';";
   $result = $conn->query($query);
   $row = $result->fetch_assoc();
@@ -12,7 +13,20 @@ function loginUsername($conn, $username) {
   }
 }
 
-function loginUser($conn, $username, $password) {
+function isSeller($conn, $userId)
+{
+  $query = "SELECT * FROM seller WHERE userId = '$userId';";
+  $result = $conn->query($query);
+  $row = $result->fetch_assoc();
+  if ($row) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function loginUser($conn, $username, $password)
+{
   $loginUsername = loginUsername($conn, $username);
 
   if (!$loginUsername) {
@@ -30,6 +44,7 @@ function loginUser($conn, $username, $password) {
     $_SESSION['userName'] = $loginUsername["userNames"];
     $_SESSION["id"] = $loginUsername["ids"];
     $_SESSION["admin"] = $loginUsername["admin"];
+    $_SESSION["seller"] = isSeller($conn, $loginUsername["ids"]);
 
     header("location: ../index.php");
     exit();

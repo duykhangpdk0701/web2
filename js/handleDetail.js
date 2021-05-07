@@ -17,18 +17,18 @@ const render = (data) => {
 
   if (isExistInPurchase(data) >= 0) {
     BtnContainer.innerHTML = `
-    <button class="detail-header-price-btn-container-btns-buy detail-header-price-btn-container-btns-buyed" name="buyNowBtn">đẫ mua</button>
-    <button class="detail-header-price-btn-container-btns-add detail-header-price-btn-container-btns-buyed" name="addBtn"><i class="fas fa-check"></i></button>
+    <button class="detail-header-price-btn-container-btns-buy detail-header-price-btn-container-btns-buyed" >đẫ mua</button>
+    <button class="detail-header-price-btn-container-btns-add detail-header-price-btn-container-btns-buyed" ><i class="fas fa-check"></i></button>
       `;
   } else if (isExistInWishlist(data) >= 0) {
     BtnContainer.innerHTML = `
     <button onClick="handleBtn(this)" typeBtn="buy" class="detail-header-price-btn-container-btns-buy" name="buyNowBtn">Mua</button>
-    <button onClick="handleBtn(this)" typeBtn="remove" class="detail-header-price-btn-container-btns-add" name="removeBtn"><i class="fas fa-check"></i></button>
+    <button onClick="handleBtn(this)" typeBtn="remove" class="detail-header-price-btn-container-btns-add" name="removeBtn" title="Remove from wishlist"><i class="fas fa-check"></i></button>
       `;
   } else {
     BtnContainer.innerHTML = `
       <button onClick="handleBtn(this)" typeBtn="buy" class="detail-header-price-btn-container-btns-buy" name="buyNowBtn">Mua</button>
-      <button onClick="handleBtn(this)" typeBtn="add" class="detail-header-price-btn-container-btns-add" name="addBtn"><i class="fas fa-plus"></i></button>
+      <button onClick="handleBtn(this)" typeBtn="add" class="detail-header-price-btn-container-btns-add" name="addBtn" title="Add to wishlist"><i class="fas fa-plus"></i></button>
       `;
   }
 };
@@ -42,18 +42,18 @@ const renderWithCallback = async (data, callback1, callback2) => {
 
   if (isExistInPurchase(data) >= 0) {
     BtnContainer.innerHTML = `
-    <button class="detail-header-price-btn-container-btns-buy detail-header-price-btn-container-btns-buyed" name="buyNowBtn">đẫ mua</button>
-    <button class="detail-header-price-btn-container-btns-add detail-header-price-btn-container-btns-buyed" name="addBtn"><i class="fas fa-check"></i></button>
+    <button class="detail-header-price-btn-container-btns-buy detail-header-price-btn-container-btns-buyed" >Own</button>
+    <button class="detail-header-price-btn-container-btns-add detail-header-price-btn-container-btns-buyed" ><i class="fas fa-check"></i></button>
       `;
   } else if (isExistInWishlist(data) >= 0) {
     BtnContainer.innerHTML = `
     <button onClick="handleBtn(this)" typeBtn="buy" class="detail-header-price-btn-container-btns-buy" name="buyNowBtn">Mua</button>
-    <button onClick="handleBtn(this)" typeBtn="remove" class="detail-header-price-btn-container-btns-add" name="removeBtn"><i class="fas fa-check"></i></button>
+    <button onClick="handleBtn(this)" typeBtn="remove" class="detail-header-price-btn-container-btns-add" name="removeBtn" title="Remove from wishlist"><i class="fas fa-check"></i></button>
       `;
   } else {
     BtnContainer.innerHTML = `
       <button onClick="handleBtn(this)" typeBtn="buy" class="detail-header-price-btn-container-btns-buy" name="buyNowBtn">Mua</button>
-      <button onClick="handleBtn(this)" typeBtn="add" class="detail-header-price-btn-container-btns-add" name="addBtn"><i class="fas fa-plus"></i></button>
+      <button onClick="handleBtn(this)" typeBtn="add" class="detail-header-price-btn-container-btns-add" name="addBtn" title="Add to wishlist"><i class="fas fa-plus"></i></button>
       `;
   }
 };
@@ -70,7 +70,7 @@ const fetchPurchase = async () => {
   );
 };
 
-const fetchData = (callbackFunc1, callbackFun2) => {
+const fetchData = (callbackFunc1, callbackFunc2) => {
   const xmlhttp = new XMLHttpRequest();
   const method = "GET";
   const url = "./includes/listProduct.inc.php";
@@ -82,7 +82,7 @@ const fetchData = (callbackFunc1, callbackFun2) => {
   xmlhttp.onreadystatechange = async () => {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       await callbackFunc1();
-      await callbackFun2();
+      await callbackFunc2();
       product = await JSON.parse(xmlhttp.responseText);
       render(product);
     } else {

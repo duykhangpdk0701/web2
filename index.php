@@ -28,7 +28,7 @@ if (isset($_SESSION["userName"])) {
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
 
   if ($_SESSION["admin"] == 1) {
-    echo "<li class='index-nav-li'><a href=''>Admin</a></li>";
+    echo "<li class='index-nav-li'><a href='./adminApproveList.php'>Admin</a></li>";
   }
 
   echo "<li class='index-nav-li'><a href='./includes/logout.inc.php'>Đăng xuất</a></li>";
@@ -43,18 +43,19 @@ if (isset($_SESSION["userName"])) {
       <div class="index-semi-nav-bar">
         <div class="index-semi-nav-bar-left">
           <div class="browse-container">
-            <a href="">Cửa hàng</a>
+            <a href="./" style="color: #e7e7e7">Cửa hàng</a>
           </div>
           <div class="wish-list-container">
             <a href="./wishList.php">
-              <i class="fas fa-shopping-cart"></i>
+              <p class="wish-list-text">Giỏ hàng</p>
+              <div class="wish-list-number">0</div>
             </a>
 
           </div>
         </div>
         <div class="index-semi-nav-bar-right">
           <div class="index-search-bar">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search search-icon"></i>
             <input id="search-bar" class="search-bar" type="text" placeholder="Tim kiếm">
           </div>
         </div>
@@ -69,8 +70,10 @@ if (isset($_SESSION["userName"])) {
         </ul>
       </div>
     </div>
+    <?php
+include_once "./footer.php";
+?>
   </section>
-
   <script src="./js/app.js"></script>
 </body>
 
