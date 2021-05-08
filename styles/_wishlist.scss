@@ -1,5 +1,4 @@
 .wishlist-main {
-  display: flex;
   width: 75%;
   min-height: 70vh;
   margin: auto;
@@ -89,4 +88,46 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
+}
+
+.own-product-total-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+  .own-product-total-container-inside {
+    text-align: center;
+    margin-right: 35px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1919px) {
+  .wishlist-main {
+    width: 90%;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 768px) {
+  .wishlist-main {
+    width: 90%;
+  }
+
+  .wishlist-li-item {
+    .wishlist-item-url {
+      .wishlist-img {
+        display: none;
+      }
+
+      .wishlist-text-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+
+        .wishlist-item-price {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
 }

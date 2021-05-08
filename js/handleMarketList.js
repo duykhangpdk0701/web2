@@ -16,6 +16,8 @@ const getOccurrence = (array, value) => {
 };
 
 const fetchOwnProduct = async () => {
+  let total = 0;
+  const totalEarn = document.querySelector(".own-product-total-text");
   const ownProductUl = document.querySelector(".wishlist-ul-item");
   const data = await fetch("./includes/handleOwnProduct.inc.php").then((data) =>
     data.json(),
@@ -28,7 +30,7 @@ const fetchOwnProduct = async () => {
   const resetData = data.map((item) => {
     let amountSoldCalc = getOccurrence(dataPurchase, item.id);
     let totalEarnCalc = item.price * amountSoldCalc;
-
+    total += totalEarnCalc;
     return {
       id: item.id,
       imgRepresentativeUrl: item.imgRepresentativeUrl,
@@ -66,6 +68,7 @@ const fetchOwnProduct = async () => {
           </li>`;
   });
   ownProductUl.innerHTML = render;
+  totalEarn.textContent = total + "$";
 };
 
 const app = () => {

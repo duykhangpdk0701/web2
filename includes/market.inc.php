@@ -168,4 +168,5 @@ $product = new Product();
 if (isset($_POST["submit-btn"])) {
   $product->setData();
   $product->sendData($conn);
+  header("location: ../index.php?message=postProductSucceed");
 }

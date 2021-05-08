@@ -64,6 +64,12 @@ if (isset($_SESSION["seller"])) {
       <ul class="wishlist-ul-item">
         <!-- item wish list will render in here -->
       </ul>
+      <div class="own-product-total-container">
+        <div class="own-product-total-container-inside">
+          <h3 class="own-product-total-title">Tổng:</h3>
+          <h3 class="own-product-total-text">0</h3>
+        </div>
+      </div>
     </div>
   </section>
   <script src="./js/handleMarketList.js"></script>

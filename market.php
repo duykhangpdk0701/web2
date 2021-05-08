@@ -102,7 +102,7 @@ if (isset($_SESSION["seller"])) {
             </div>
             <div class="detail-info-right-date-release-container">
               <h4>Release Date</h4>
-              <input class="market-input-text" type="text" placeholder="Ex:2020-12-31 (yyyy-mm-dd)" name="dateRelease"
+              <input class="market-input-text" type="date" placeholder="Ex:2020-12-31 (yyyy-mm-dd)" name="dateRelease"
                 required>
             </div>
             <div class="detail-info-right-tags-container">

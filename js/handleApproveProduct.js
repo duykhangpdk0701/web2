@@ -10,7 +10,7 @@ const fetchDataWishList = async () => {
   let render = "";
   data.forEach((element) => {
     render += `<li class="wishlist-li-item">
-    <a href="./detail.php?id=${
+    <a href="./detailAwait.php?id=${
       element.id
     }" class="wishlist-item-url" alt="lalala">
             <img class="wishlist-img" src="${

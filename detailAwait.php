@@ -61,17 +61,10 @@ if (isset($_SESSION["userName"])) {
           <div class="browse-container">
             <a href="./">Cửa hàng</a>
           </div>
-          <div class="wish-list-container">
-            <a href="./wishList.php">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </div>
+
         </div>
         <div class="index-semi-nav-bar-right">
-          <div class="index-search-bar">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Tim kiếm" />
-          </div>
+
         </div>
       </div>
     </nav>
