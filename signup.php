@@ -46,9 +46,7 @@ if (isset($_GET["error"])) {
       </div>
     </form>
   </section>
-  <?php
-include_once "./footer.php";
-?>
+
 
 </body>
 

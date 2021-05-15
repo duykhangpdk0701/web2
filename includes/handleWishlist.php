@@ -2,7 +2,8 @@
 
 session_start();
 
-function renderListProductWithSession($userId) {
+function renderListProductWithSession($userId)
+{
   require_once "./db.inc.php";
   $query = "SELECT * FROM products,wishlist where userId  = $userId AND wishlist.productId = products.id;";
   $result = $conn->query($query);

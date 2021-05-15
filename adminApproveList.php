@@ -20,7 +20,7 @@ if (isset($_SESSION["userName"])) {
   echo "<span class='index-profile-a' href='./login.php'><i class='index-logo-profile fas fa-user'></i>";
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
-  echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
+  echo "<li class='index-nav-li'><a href='./account.php'>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
   if ($_SESSION["admin"] == 1) {
@@ -39,7 +39,8 @@ if (isset($_SESSION["userName"])) {
         <div class="index-semi-nav-bar-left">
           <div class="browse-container">
             <a href="./index.php">Cửa hàng</a>
-            <a href="" style="color: #e7e7e7">Phê duyệt</a>
+            <a href="./adminApproveList.php" style='color: rgb(18, 18, 18)'>Phê duyệt</a>
+            <a href="./listProductAdmin.php">Ds sản phẩm</a>
           </div>
 
         </div>

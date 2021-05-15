@@ -7,6 +7,7 @@ session_start();
 <?php
 include_once "./header.php";
 ?>
+
 <title>Dice Game</title>
 </head>
 
@@ -23,7 +24,7 @@ if (isset($_SESSION["userName"])) {
   echo "<span class='index-profile-a' href='./login.php'><i class='index-logo-profile fas fa-user'></i>";
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
-  echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
+  echo "<li class='index-nav-li'><a href='./account.php'>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
 
@@ -43,7 +44,7 @@ if (isset($_SESSION["userName"])) {
       <div class="index-semi-nav-bar">
         <div class="index-semi-nav-bar-left">
           <div class="browse-container">
-            <a href="./" style="color: #e7e7e7">Cửa hàng</a>
+            <a href="./" style="color: rgb(18, 18, 18)">Cửa hàng</a>
           </div>
           <div class="wish-list-container">
             <a href="./wishList.php">

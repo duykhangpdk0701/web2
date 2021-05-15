@@ -8,7 +8,7 @@
 
 .login-form {
   padding: 60px;
-  background-color: rgb(32, 32, 32);
+  background-color: $cartColor;
   display: flex;
   flex-direction: column;
   width: 470px;
@@ -28,12 +28,12 @@
   .login-username,
   .login-password {
     height: 50px;
-    background-color: rgb(43, 43, 43);
+    background-color: $backgroundColor;
     border: none;
     margin-top: 15px;
     outline: none;
     padding: 0 14px;
-    color: white;
+    color: $textColor;
     border-radius: 5px;
     font-size: 13px;
   }
@@ -71,7 +71,7 @@
 .submit-btn {
   height: 50px;
   margin-top: 16px;
-  background-color: rgba(18, 18, 18, 0.5);
+  background-color: $backgroundColor;
   color: $textDescriptionColor;
   border: none;
   border-radius: 5px;
@@ -82,11 +82,12 @@
 
 .submit-btn-active {
   background-color: #037bee;
-  color: $textColor;
+  color: $backgroundColor;
   cursor: pointer;
   pointer-events: all;
 }
 
 .submit-btn-active:hover {
   background-color: rgb(2, 86, 166);
+  color: $backgroundColor;
 }

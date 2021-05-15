@@ -44,7 +44,7 @@ if (isset($_SESSION["userName"])) {
   echo "<span class='index-profile-a' href='./login.php'><i class='index-logo-profile fas fa-user'></i>";
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
-  echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
+  echo "<li class='index-nav-li'><a href='./account.php'>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/logout.inc.php'>Đăng xuất</a></li>";

@@ -27,6 +27,7 @@ $navBarText: #e7e7e7;
     .index-logo {
       font-size: 30px;
       padding-bottom: 5px;
+      color: $backgroundColor;
     }
   }
 }
@@ -43,7 +44,7 @@ $navBarText: #e7e7e7;
     display: flex;
     align-items: center;
     text-decoration: none;
-
+    color: $backgroundColor;
     span {
       margin: 0 5px;
       font-size: 15px;
@@ -63,7 +64,7 @@ $navBarText: #e7e7e7;
     margin-right: 10px;
   }
   a:hover {
-    color: $textColor;
+    color: $navBarColor;
   }
 }
 
@@ -82,6 +83,7 @@ $navBarText: #e7e7e7;
   .index-nav-li {
     z-index: 100;
     a {
+      font-weight: 500;
       color: rgba(255, 255, 255, 0.5);
       height: 2.2rem;
       display: flex;
@@ -103,7 +105,8 @@ $navBarText: #e7e7e7;
 }
 
 a {
-  color: $navBarText;
+  font-weight: 500;
+  color: $textDescriptionColor;
 }
 
 .index-semi-nav-bar-container {
@@ -111,7 +114,7 @@ a {
   position: sticky;
   top: 60px;
   left: 0;
-  background-color: rgba(18, 18, 18, 0.9);
+  background-color: rgba(245, 245, 245, 0.9);
 }
 
 .index-semi-nav-bar {
@@ -147,11 +150,11 @@ a {
     }
 
     .wish-list-text:hover {
-      color: $navBarText;
+      color: $textColor;
     }
 
     .wish-list-number {
-      background-color: $navBarColor;
+      background-color: $cartColor;
       height: 20px;
       padding: 0 15px;
       border-radius: 15px;
@@ -177,11 +180,11 @@ a {
   .search-bar {
     height: 100%;
     width: 100%;
-    background-color: rgb(43, 43, 43);
+    background-color: $cartColor;
     border: none;
     outline: none;
     padding: 10px 0 10px 40px;
-    color: white;
+    color: $navBarColor;
     border-radius: 5px;
     font-size: 14px;
   }
@@ -382,6 +385,7 @@ a {
 }
 
 .footer-section {
+  color: #fff;
   margin-top: 100px;
   width: 100%;
   height: 280px;
@@ -391,6 +395,7 @@ a {
 .footer-link-container {
   a {
     margin-right: 12px;
+    color: rgb(245, 245, 245);
 
     .footer-icon {
       font-size: 25px;
@@ -405,7 +410,7 @@ a {
   margin-top: 40px;
 
   .footer-creator-title {
-    color: $textDescriptionColor;
+    color: #fff;
     margin-bottom: 20px;
   }
   .footer-creator-name {

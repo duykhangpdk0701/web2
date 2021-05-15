@@ -20,7 +20,7 @@ if (isset($_SESSION["userName"])) {
   echo "<span class='index-profile-a' href='./login.php'><i class='index-logo-profile fas fa-user'></i>";
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
-  echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
+  echo "<li class='index-nav-li'><a href='./account.php'>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
 
@@ -44,7 +44,7 @@ if (isset($_SESSION["userName"])) {
 if (isset($_SESSION["seller"])) {
   if ($_SESSION["seller"]) {
     echo "<a href='./'>Cửa hàng</a>";
-    echo "<a href='./ownProduct.php' style='color: #e7e7e7'>Gian hàng</a>";
+    echo "<a href='./ownProduct.php' style='color: rgb(18, 18, 18)'>Gian hàng</a>";
     echo "<a href='./market.php'>Đăng game</a>";
   } else {
     echo "<a href=''>Cửa hàng</a>";
@@ -71,6 +71,9 @@ if (isset($_SESSION["seller"])) {
         </div>
       </div>
     </div>
+    <?php
+include_once "./footer.php";
+?>
   </section>
   <script src="./js/handleMarketList.js"></script>
 </body>

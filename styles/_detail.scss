@@ -23,7 +23,14 @@
       width: 100%;
       overflow: hidden;
       object-fit: cover;
-      background-color: rgb(38, 38, 38);
+      background-color: $navBarColor;
+
+      h3 {
+        color: $backgroundColor;
+      }
+      input {
+        color: $backgroundColor;
+      }
     }
 
     .detail-header-img-empty {
@@ -49,7 +56,7 @@
   justify-content: space-between;
 
   .detail-header-price-img {
-    background-color: rgb(38, 38, 38);
+    background-color: rgb(235, 235, 235);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -86,7 +93,7 @@
 
       .detail-header-price-btn-container-btns-buy,
       .detail-header-price-btn-container-btns-add {
-        background-color: rgb(148, 0, 211);
+        background-color: #007dfc;
         outline: none;
         border: none;
         font-size: 12px;
@@ -95,11 +102,12 @@
         font-weight: bold;
         border-radius: 5px;
         cursor: pointer;
+        color: $backgroundColor;
       }
 
       .detail-header-price-btn-container-btns-buy:hover,
       .detail-header-price-btn-container-btns-add:hover {
-        background-color: rgb(179, 0, 255);
+        background-color: #3399ff;
       }
 
       .detail-header-price-btn-container-btns-buy {
@@ -136,7 +144,7 @@
 
 .detail-info-right {
   flex-basis: 75%;
-  background-color: rgb(38, 38, 38);
+  background-color: rgb(235, 235, 235);
   border-radius: 10px;
 }
 

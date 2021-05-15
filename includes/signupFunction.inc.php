@@ -1,6 +1,7 @@
 <?php
 
-function isMatchPassword($password, $passwordRepeat) {
+function isMatchPassword($password, $passwordRepeat)
+{
   if ($password === $passwordRepeat) {
     return true;
   } else {
@@ -8,7 +9,8 @@ function isMatchPassword($password, $passwordRepeat) {
   }
 }
 
-function isValidEmail($email) {
+function isValidEmail($email)
+{
   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     return true;
   } else {
@@ -16,7 +18,8 @@ function isValidEmail($email) {
   }
 }
 
-function isValidUsername($username) {
+function isValidUsername($username)
+{
   if (preg_match(("/^[a-zA-Z0-9]*$/"), $username)) {
     return true;
   } else {
@@ -24,7 +27,8 @@ function isValidUsername($username) {
   }
 }
 
-function createUser($conn, $firstName, $lastName, $username, $email, $password) {
+function createUser($conn, $firstName, $lastName, $username, $email, $password)
+{
 
   $hashPassword = password_hash($password, PASSWORD_DEFAULT);
   $query = "INSERT INTO users (firstNames, lastNames, userNames, emails , passwords) VALUE ('$firstName' ,'$lastName', '$username', '$email' ,'$hashPassword');";
@@ -42,7 +46,8 @@ function createUser($conn, $firstName, $lastName, $username, $email, $password) 
   $conn->close();
 }
 
-function usernamesExits($conn, $username) {
+function usernamesExits($conn, $username)
+{
   $query = "SELECT * FROM users WHERE userNames = '$username';";
   $result = $conn->query($query);
   $row = $result->fetch_assoc();
@@ -53,7 +58,8 @@ function usernamesExits($conn, $username) {
   }
 }
 
-function emailExits($conn, $email) {
+function emailExits($conn, $email)
+{
   $query = "SELECT * FROM users WHERE emails = '$email';";
   $result = $conn->query($query);
   $row = $result->fetch_assoc();

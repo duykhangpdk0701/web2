@@ -4,6 +4,7 @@ session_start();
 <?php
 include_once "./header.php";
 ?>
+<link rel="stylesheet" href="tingle.min.css">
 <title>Dice Game</title>
 </head>
 
@@ -20,7 +21,7 @@ if (isset($_SESSION["userName"])) {
   echo "<span class='index-profile-a' href='./login.php'><i class='index-logo-profile fas fa-user'></i>";
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
-  echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
+  echo "<li class='index-nav-li'><a href='./account.php'>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
 
@@ -43,22 +44,39 @@ if (isset($_SESSION["userName"])) {
             <a href="./index.php">Cửa hàng</a>
             <a href=""></a>
           </div>
+          <div class="wish-list-container">
+            <a href="./wishList.php">
+              <p class="wish-list-text" style='color: rgb(18, 18, 18)'>Giỏ hàng</p>
+              <div class="wish-list-number">0</div>
+            </a>
+          </div>
 
         </div>
 
       </div>
     </nav>
 
-    <div class="wishlist-main">
+    <form class="wishlist-main">
       <ul class="wishlist-ul-item">
         <!-- item wish list will render in here -->
       </ul>
-    </div>
+      <div class="own-product-total-container">
+        <div class="own-product-total-container-inside">
+          <h3 class="own-product-total-title">Tổng:</h3>
+          <h3 class="own-product-total-text">0</h3>
+        </div>
+
+      </div>
+      <div class="own-product-total-container">
+        <button type="button" class="buy-all">Mua</button>
+      </div>
+
+    </form>
     <?php
 include_once "./footer.php";
 ?>
   </section>
-
+  <script src="tingle.min.js"></script>
   <script src="./js/handleWishList.js"></script>
 </body>
 

@@ -47,6 +47,8 @@ function approveProductWithoutAjax($conn)
     $stmt->bind_param("s", $idAwaitProduct) or die("stmt param failed");
     $stmt->execute() or die("stmt execute fail");
     $stmt->close();
+    header("location: ../index.php");
+    exit();
 
   }
 }

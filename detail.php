@@ -59,6 +59,7 @@ function isExistWishlist($resultWishlist, $item)
   <link rel="icon" href="./img/logoTitle.svg" type="image/x-icon" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="tingle.min.css">
   <link rel="stylesheet" href="./styles/style.css" />
   <title>Document</title>
 </head>
@@ -76,7 +77,7 @@ if (isset($_SESSION["userName"])) {
   echo "<span class='index-profile-a' href='./login.php'><i class='index-logo-profile fas fa-user'></i>";
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
-  echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
+  echo "<li class='index-nav-li'><a href='./account.php'>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
 
@@ -100,16 +101,15 @@ if (isset($_SESSION["userName"])) {
           </div>
           <div class="wish-list-container">
             <a href="./wishList.php">
-              <i class="fas fa-shopping-cart"></i>
+              <p class="wish-list-text">Giỏ hàng</p>
+              <div class="wish-list-number">0</div>
             </a>
           </div>
         </div>
-        <div class="index-semi-nav-bar-right">
-          <div class="index-search-bar">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Tim kiếm" />
-          </div>
-        </div>
+      </div>
+      <div class="index-semi-nav-bar-right">
+
+      </div>
       </div>
     </nav>
 
@@ -136,19 +136,25 @@ if (isset($_SESSION["userName"])) {
           </div>
           <div class="detail-info-right">
             <div class="detail-info-right-developer-container">
-              <h4>Developer</h4>
+              <h4>Nhà phát triển</h4>
               <h3><?php echo $row["developer"] ?></h3>
             </div>
             <div class="detail-info-right-date-release-container">
-              <h4>Release Date</h4>
-              <h3>Apr 2, 2021</h3>
+              <h4>Ngày ra mắt</h4>
+              <h3>
+                <?php
+
+$date = date_create($row["dateRelease"]);
+echo date_format($date, "j M Y");
+?>
+              </h3>
             </div>
             <div class="detail-info-right-tags-container">
-              <h4>Tags</h4>
+              <h4>Thể loại</h4>
               <h3><?php echo $row["tags"] ?></h3>
             </div>
             <div class="detail-info-right-platform-container">
-              <h4>Platform</h4>
+              <h4>Nền tảng</h4>
               <h3>Window</h3>
             </div>
           </div>
@@ -211,6 +217,7 @@ include_once "./footer.php";
 
 
   </section>
+  <script src="tingle.min.js"></script>
   <script src="./js/handleDetail.js"></script>
 </body>
 

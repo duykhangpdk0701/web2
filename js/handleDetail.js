@@ -31,6 +31,13 @@ const render = (data) => {
       <button onClick="handleBtn(this)" typeBtn="add" class="detail-header-price-btn-container-btns-add" name="addBtn" title="Add to wishlist"><i class="fas fa-plus"></i></button>
       `;
   }
+
+  renderAmountWishlist(wishlist.length);
+};
+
+const renderAmountWishlist = (wishlistLength) => {
+  const amountWishlist = document.querySelector(".wish-list-number");
+  amountWishlist.textContent = wishlistLength;
 };
 
 const renderWithCallback = async (data, callback1, callback2) => {
@@ -56,6 +63,7 @@ const renderWithCallback = async (data, callback1, callback2) => {
       <button onClick="handleBtn(this)" typeBtn="add" class="detail-header-price-btn-container-btns-add" name="addBtn" title="Add to wishlist"><i class="fas fa-plus"></i></button>
       `;
   }
+  renderAmountWishlist(wishlist.length);
 };
 
 const fetchWishlist = async () => {
@@ -111,7 +119,7 @@ const handleBtn = (e) => {
     xmlhttp.send(`productId=${productId}&method=remove`);
   } else if (btnType === "buy") {
     console.log("click buy");
-    xmlhttp.send(`productId=${productId}&method=buy`);
+    popupBox(xmlhttp, productId);
   }
 
   xmlhttp.onreadystatechange = async () => {
@@ -127,6 +135,37 @@ const handleBtn = (e) => {
       renderWithCallback(product, fetchPurchase, fetchWishlist);
     }
   };
+};
+
+const popupBox = (object, productId) => {
+  var modal = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ["overlay", "button", "escape"],
+    closeLabel: "Close",
+    cssClass: ["custom-class-1", "custom-class-2"],
+  });
+
+  modal.setContent("<h1>Bạn có muốn mua sản phẩm này chứ ?</h1>");
+
+  modal.addFooterBtn(
+    "từ chối",
+    "tingle-btn tingle-btn--danger tingle-btn--pull-right",
+    function () {
+      modal.close();
+    },
+  );
+
+  modal.addFooterBtn(
+    "Đồng ý",
+    "tingle-btn tingle-btn--primary tingle-btn--pull-right",
+    function () {
+      object.send(`productId=${productId}&method=buy`);
+      modal.close();
+    },
+  );
+
+  modal.open();
 };
 
 const app = () => {

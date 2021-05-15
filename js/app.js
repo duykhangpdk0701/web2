@@ -77,12 +77,13 @@ const renderData = (data) => {
   let render = "";
 
   for (const element of data) {
-    render += `
+    if (element.status == 1) {
+      render += `
     <li class="cart">
       <div class="cart-form" method="POST" action="./includes/addItemToWishList.inc.php?id=${element.id}" >`;
 
-    if (isExistInPurchasesList(element.id, purchase)) {
-      render += `<button type="button" class='card-svg green-btn' title="Own this game">
+      if (isExistInPurchasesList(element.id, purchase)) {
+        render += `<button type="button" class='card-svg green-btn' title="Own this game"  >
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 29C24.9706 29 29 24.9706 29 20C29 15.0294 24.9706 11 20 11C15.0294 11 11 15.0294 11 20C11 24.9706 15.0294 29 20 29Z" fill="#2ECC71" stroke="white" stroke-width="2"/>
         <path d="M15.5 20L18.5 23L24.5 17" fill="#2ECC71"/>
@@ -90,8 +91,8 @@ const renderData = (data) => {
         </svg>
       </button>
       `;
-    } else if (isExistInWishlist(element.id, wishlist)) {
-      render += `<button onClick="handleWishlistBtn(this)" idProduct="${element.id}" typeBtn="remove" class="card-svg" name="removeBtn" title="Remove from wishlist" >
+      } else if (isExistInWishlist(element.id, wishlist)) {
+        render += `<button onClick="handleWishlistBtn(this)" idProduct="${element.id}" typeBtn="remove" class="card-svg" name="removeBtn" title="Remove from wishlist" >
         <svg xmlns="http://www.w3.org/2000/svg" class="svg css-wpyjus-Icon__svg" viewBox="0 0 40 40">
         <g filter="url(#filter0_d)">
           <circle cx="20" cy="20" r="10" fill="currentColor" fill-opacity="0.72"></circle>
@@ -115,8 +116,8 @@ const renderData = (data) => {
         </defs>
       </svg>
                       </button>`;
-    } else {
-      render += `<button type="button" onClick="handleWishlistBtn(this)" idProduct="${element.id}" typeBtn="add" class="card-svg" name="addBtn" title="Add to wishlist" >
+      } else {
+        render += `<button type="button" onClick="handleWishlistBtn(this)" idProduct="${element.id}" typeBtn="add" class="card-svg" name="addBtn" title="Add to wishlist" >
         <svg xmlns="http://www.w3.org/2000/svg" class="svg css-wpyjus-Icon__svg" viewBox="0 0 40 40">
         <g filter="url(#filter0_d)">
           <circle cx="20" cy="20" r="10" fill="currentColor" fill-opacity="0.72"></circle>
@@ -141,9 +142,9 @@ const renderData = (data) => {
         </defs>
       </svg>
                       </button>`;
-    }
+      }
 
-    render += `
+      render += `
         <a href="./detail.php?id=${element.id}" class="cart-url">
           <div class="cart-img-box">
             <img src="${element.imgBrowseUrl}" alt="">
@@ -156,6 +157,7 @@ const renderData = (data) => {
         </a>
       </div>
     </li>`;
+    }
   }
 
   wishlistCount.textContent = wishlist.length;
@@ -171,7 +173,7 @@ const fetchData = () => {
   xmlhttp.onreadystatechange = () => {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       const data = JSON.parse(xmlhttp.responseText);
-      product = data;
+      product = data.reverse();
       renderData(data);
     } else {
       console.warn("not receiving data product");
@@ -221,7 +223,6 @@ const handleWishlistBtn = (e) => {
       } catch (e) {}
 
       fetchDataWishListWithCallBack(() => {
-        console.log("hello my name is Khang");
         renderData(product);
       });
     }

@@ -13,7 +13,7 @@
   padding-left: 10px;
   width: 100%;
   height: 70px;
-  background-color: $navBarColor;
+  background-color: $cartColor;
   border-radius: 5px;
   display: flex;
   margin-top: 10px;
@@ -47,10 +47,14 @@
 
       .wishlist-item-name {
         margin-left: 16px;
+        font-weight: 500;
+        color: $textColor;
       }
 
       .wishlist-item-price {
         font-size: 15px;
+        font-weight: 500;
+        color: $textColor;
       }
     }
   }
@@ -69,6 +73,9 @@
     border-radius: 5px;
 
     .wish-list-icon-remove {
+      color: $textColor;
+    }
+    .wishlist-check-btn {
       color: $textColor;
     }
   }
@@ -130,4 +137,78 @@
       }
     }
   }
+}
+
+.approve-product-item-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.approve-product-item-post-by-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-right: 30px;
+  flex-basis: 100px;
+}
+
+.table-list-admin-product {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-list-admin-product td,
+.table-list-admin-product th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table-list-admin-product tr:nth-child(even) {
+  background-color: $cartColor;
+}
+
+.table-list-admin-product tr:hover {
+  background-color: rgb(199, 199, 199);
+}
+
+.table-list-admin-product th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: $navBarColor;
+  color: white;
+}
+
+.admin-list-product-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: $backgroundColor;
+  cursor: pointer;
+}
+
+.admin-list-product-btn-able {
+  background-color: rgb(49, 152, 255);
+}
+
+.admin-list-product-btn-able:hover {
+  background-color: rgb(0, 125, 252);
+}
+
+.admin-list-product-btn-disable {
+  background-color: #e74c3c;
+}
+.admin-list-product-btn-disable:hover {
+  background-color: #c0392b;
+}
+
+.admin-list-table-status {
+  width: 12%;
+  text-align: center;
+}
+
+.buy-all {
+  padding: 10px 20px;
+  background-color: rgb(49, 152, 255);
 }

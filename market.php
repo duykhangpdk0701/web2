@@ -23,7 +23,7 @@ if (isset($_SESSION["userName"])) {
   echo "<span class='index-profile-a' href='./login.php'><i class='index-logo-profile fas fa-user'></i>";
   echo "<span>$username</span></span>";
   echo "<ul class='index-nav-ul'>";
-  echo "<li class='index-nav-li'><a href=''>Tài Khoản</a></li>";
+  echo "<li class='index-nav-li'><a href='./account.php'>Tài Khoản</a></li>";
   echo "<li class='index-nav-li'><a href='./wishlist.php'>Giỏ hàng</a></li>";
   echo "<li class='index-nav-li'><a href='./includes/handleMarketPage.inc.php'>Market</a></li>";
 
@@ -48,7 +48,7 @@ if (isset($_SESSION["seller"])) {
   if ($_SESSION["seller"]) {
     echo "<a href='./'>Cửa hàng</a>";
     echo "<a href='./ownProduct.php'>Gian hàng</a>";
-    echo "<a href='./market.php' style='color: #e7e7e7'>Đăng game</a>";
+    echo "<a href='./market.php' style='color: rgb(18, 18, 18)'>Đăng game</a>";
   } else {
     echo "<a href=''>Cửa hàng</a>";
   }
@@ -83,7 +83,7 @@ if (isset($_SESSION["seller"])) {
 
           <div class="detail-header-price-btn-container">
             <h3>Price (USD)</h3>
-            <input class="market-input-text" type="text" name="price">
+            <input class="market-input-text market-input-text-price" type="text" name="price">
             <div class="detail-header-price-btn-container-btns">
 
             </div>
@@ -140,7 +140,7 @@ if (isset($_SESSION["seller"])) {
 
         <div class="detail-info-child detail-info-specifications">
           <div class="detail-info-left">
-            <h3 class="detail-info-left-text">Thông số kỹ thuật</h3>
+            <h3 class="detail-info-left-text">Cấu hình yêu cầu</h3>
           </div>
 
 
@@ -177,7 +177,7 @@ if (isset($_SESSION["seller"])) {
 
         <div class="detail-info-child detail-info-post-image">
           <div class="detail-info-left">
-            <h3>Image đề xuất trên browser</h3>
+            <h3 class="detail-info-left-text">Image đề xuất trên browser</h3>
             </h3>
           </div>
           <div class="detail-info-right market-img-post-right">
@@ -195,7 +195,8 @@ if (isset($_SESSION["seller"])) {
             </div>
             <div>
               <h4>Game's name</h4>
-              <input class="market-input-text" type="text" placeholder="Star War 2" name="name" required>
+              <input oninput="handleName(this)" class="market-input-text" type="text" placeholder="Star War 2"
+                name="name" required>
             </div>
           </div>
         </div>
@@ -213,7 +214,7 @@ include_once "./footer.php";
 ?>
 
   </section>
-
+  <script src="./js/handleMarketPost.js"></script>
 </body>
 
 </html>

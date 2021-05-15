@@ -1,0 +1,164 @@
+$backgroundColorMain: rgb(248, 248, 248);
+$textColorPrimary: rgb(18, 18, 18);
+$textColor: #999;
+.account-main {
+  color: $textColorPrimary;
+  min-height: 75vh;
+  background-color: $backgroundColorMain;
+}
+
+.account-container {
+  width: 50%;
+  margin: auto;
+}
+
+.section {
+  background-color: $backgroundColorMain;
+}
+
+.index-semi-nav-bar-container {
+  background-color: rgba(248, 248, 248, 0.9);
+}
+
+.browse-container {
+  a {
+    color: $textColor;
+    font-weight: 500;
+  }
+  a:hover {
+    color: $textColorPrimary;
+  }
+}
+
+.account-container {
+  background-color: #fff;
+  border: 0.1px solid rgb(231, 231, 231);
+  padding: 30px 50px;
+  min-height: 500px;
+  border-radius: 5px;
+}
+
+.account-container-info {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  grid-row-gap: 40px;
+}
+
+.account-container-title {
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.account-title {
+  color: $textColor;
+  font-size: 12px;
+}
+
+.account-text {
+  color: $textColorPrimary;
+  font-size: 17px;
+}
+
+.account-container-title-password {
+  margin: 30px 0 20px 0;
+}
+
+.account-password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.account-password-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.account-password-input-container {
+  margin-top: 7px;
+  width: 300px;
+  height: 35px;
+  display: flex;
+
+  button {
+    height: 100%;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    flex-basis: 30px;
+  }
+}
+
+.account-password-input {
+  flex-basis: 270px;
+  height: 100%;
+  padding: 5px;
+  border: 0.1px solid rgba(202, 202, 202, 0.9);
+  font-size: 17px;
+  outline: none;
+}
+
+.account-password-submit {
+  margin-top: 30px;
+  background-color: #007dfc;
+  padding: 12px 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: 0.1s all ease;
+}
+
+.account-password-submit:hover {
+  background-color: #3399ff;
+}
+
+.account-password-error {
+  background-color: rgb(213, 72, 65);
+  max-width: 300px;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.account-password-error {
+  display: none;
+}
+
+.purchased-ul-item,
+.purchase-title {
+  background-color: $backgroundColorMain;
+  width: 70%;
+  margin: auto;
+}
+
+.wishlist-li-item {
+  background-color: rgb(235, 235, 235);
+  outline: none;
+
+  .wishlist-item-url {
+    flex-basis: 100%;
+  }
+}
+
+.purchases-item-date {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.purchases-item-date-title {
+  color: $textColor;
+}
+
+.purchases-item-date-text {
+  color: $textColorPrimary;
+}
