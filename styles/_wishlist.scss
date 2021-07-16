@@ -2,6 +2,7 @@
   width: 75%;
   min-height: 70vh;
   margin: auto;
+  text-align: center;
 }
 
 .wishlist-ul-item {
@@ -209,6 +210,13 @@
 }
 
 .buy-all {
-  padding: 10px 20px;
+  margin-right: 20px;
+  padding: 10px 50px;
   background-color: rgb(49, 152, 255);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
 }

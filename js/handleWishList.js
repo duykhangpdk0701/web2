@@ -19,35 +19,44 @@ const fetchDataWishList = async () => {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       let render = "";
       const data = JSON.parse(xmlhttp.responseText);
-      data.forEach((element) => {
-        userId = element.userId;
-        total += parseFloat(element.price);
+      console.log(data.length);
 
-        render += `<li name='productId' idProduct="${
-          element.productId
-        }" class="wishlist-li-item">
-          <a href="./detail.php?id=${
+      if (data.length > 0) {
+        data.forEach((element) => {
+          userId = element.userId;
+          total += parseFloat(element.price);
+
+          render += `<li name='productId' idProduct="${
             element.productId
-          }" class="wishlist-item-url" alt="lalala">
+          }" class="wishlist-li-item">
+        <a href="./detail.php?id=${
+          element.productId
+        }" class="wishlist-item-url" alt="lalala">
             <img class="wishlist-img" src="${
               element.imgRepresentativeUrl
             }" alt="">
             <div class="wishlist-text-container">
-              <span class="wishlist-item-name">${element.name}</span>
-              <span class="wishlist-item-price">${
-                element.price == 0 ? "Miễn phí" : element.price + "$"
-              }</span>
+            <span class="wishlist-item-name">${element.name}</span>
+            <span class="wishlist-item-price">${
+              element.price == 0 ? "Miễn phí" : element.price + "$"
+            }</span>
             </div>
           </a>
           <button title="Remove From wishlist" onclick="handleRemoveBtn(this)" idProduct="${
             element.productId
           }" class="wishlist-remove-btn"><i
-              class="wish-list-icon-remove fas fa-trash"></i></button>
-        </li>`;
-      });
-      renderAmountWishlist(data.length);
-      wishlistUlItem.innerHTML = render;
-      totalElement.textContent = total + "$";
+          class="wish-list-icon-remove fas fa-trash"></i></button>
+          </li>`;
+        });
+
+        renderAmountWishlist(data.length);
+        wishlistUlItem.innerHTML = render;
+        totalElement.textContent = total + "$";
+      } else {
+        const mainUl = document.querySelector(".wishlist-main");
+
+        mainUl.innerHTML = `<h1>Không có sản phẩm trong giỏ hàng</h1>`;
+      }
     } else {
       console.warn("not receiving data");
     }

@@ -1018,6 +1018,7 @@ a {
   width: 75%;
   min-height: 70vh;
   margin: auto;
+  text-align: center;
 }
 
 .wishlist-ul-item {
@@ -1264,8 +1265,15 @@ a {
 }
 
 .buy-all {
-  padding: 10px 20px;
+  margin-right: 20px;
+  padding: 10px 50px;
   background-color: #3198ff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .market-main {

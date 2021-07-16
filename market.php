@@ -97,20 +97,20 @@ if (isset($_SESSION["seller"])) {
           </div>
           <div class="detail-info-right">
             <div class="detail-info-right-developer-container">
-              <h4>Developer</h4>
+              <h4>Nhà phát triển</h4>
               <input class="market-input-text" type="text" placeholder="Ex:CD Project Red" name="developer" required>
             </div>
             <div class="detail-info-right-date-release-container">
-              <h4>Release Date</h4>
+              <h4>Ngày Phát hành</h4>
               <input class="market-input-text" type="date" placeholder="Ex:2020-12-31 (yyyy-mm-dd)" name="dateRelease"
                 required>
             </div>
             <div class="detail-info-right-tags-container">
-              <h4>Tags</h4>
+              <h4>Thể loại</h4>
               <input class="market-input-text" type="text" placeholder="Ex:Action, RPG" name="tags" required>
             </div>
             <div class="detail-info-right-platform-container">
-              <h4>Platform</h4>
+              <h4>Nền tảng</h4>
               <input class="market-input-text" type="text" placeholder="Ex:Window" name="platform" required>
             </div>
           </div>

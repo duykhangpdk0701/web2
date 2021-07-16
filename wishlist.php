@@ -56,7 +56,7 @@ if (isset($_SESSION["userName"])) {
       </div>
     </nav>
 
-    <form class="wishlist-main">
+    <div class="wishlist-main">
       <ul class="wishlist-ul-item">
         <!-- item wish list will render in here -->
       </ul>
@@ -71,7 +71,7 @@ if (isset($_SESSION["userName"])) {
         <button type="button" class="buy-all">Mua</button>
       </div>
 
-    </form>
+    </div>
     <?php
 include_once "./footer.php";
 ?>

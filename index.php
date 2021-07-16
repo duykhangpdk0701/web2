@@ -47,10 +47,21 @@ if (isset($_SESSION["userName"])) {
             <a href="./" style="color: rgb(18, 18, 18)">Cửa hàng</a>
           </div>
           <div class="wish-list-container">
-            <a href="./wishList.php">
-              <p class="wish-list-text">Giỏ hàng</p>
-              <div class="wish-list-number">0</div>
-            </a>
+
+
+            <?php
+if (isset($_SESSION["userName"])) {
+  echo "<a href='./wishList.php'>";
+  echo "<p class='wish-list-text'>Giỏ hàng</p>";
+  echo "<div class='wish-list-number'>0</div>";
+  echo "</a>";
+} else {
+  echo "<a href='./login.php'>";
+  echo "<p class='wish-list-text'>Giỏ hàng</p>";
+  echo "<div class='wish-list-number'>0</div>";
+  echo "</a>";
+}
+?>
 
           </div>
         </div>
